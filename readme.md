@@ -22,16 +22,16 @@ The main ideas of DEFT are:
 
 This release only contains the **DEFT-specific module** needed to reproduce the policy-side contribution of the paper. Included files:
 
-- `MoE/moe.py`  
+- `DEFT/moe.py`  
   Implements the main MoE components used by DEFT, including:
   - the DAG encoder,
   - the graph-adaptive gating network, and
   - the hybrid MoE routing module.
 
-- `MoE/stateEmbeddingLearning.py`  
+- `DEFT/stateEmbeddingLearning.py`  
   Contains the state embedding module (SEM) used by DEFT. This module follows the GATES backbone design and exposes the intermediate representations required by the DEFT gating and expert-routing logic.
 
-- `MoE/wf_model.py`  
+- `DEFT/wf_model.py`  
   Provides the DEFT policy wrapper (`WFPolicy`) that combines:
   - the GATES-style state embedding module,
   - the DAG encoder,
@@ -61,18 +61,18 @@ A high-level integration workflow is:
    - Follow its environment setup and dependency instructions.
 
 2. **Add the DEFT modules to the GATES project**
-   - Copy the `MoE/` directory from this release into the GATES project.
+   - Copy the `DEFT/` directory from this release into the GATES project.
    - Keep the original GATES project structure intact.
 
 3. **Connect the DEFT policy to the GATES training framework**
-   - The DEFT implementation in `MoE/wf_model.py` defines a `WFPolicy` compatible with the existing workflow scheduling setting.
+   - The DEFT implementation in `DEFT/wf_model.py` defines a `WFPolicy` compatible with the existing workflow scheduling setting.
 
 4. **Reuse the GATES simulator and training scripts**
    - Continue to use the original simulator, environment, config system, and ES-based training backbone from GATES.
    - DEFT is intended to run inside that framework rather than as an independent training codebase. 
 
 5. **Prepare expert initialization checkpoints**
-   - `MoE/wf_model.py` expects multiple pre-trained model paths for expert initialization.
+   - `DEFT/wf_model.py` expects multiple pre-trained model paths for expert initialization.
    - These experts are initialized from pre-trained GATES-style policy checkpoints trained under different deadline settings.
    - You should replace the placeholder paths in the code with your own checkpoint paths.
 
