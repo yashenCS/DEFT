@@ -16,37 +16,37 @@ The main ideas of DEFT are:
 - **Graph-adaptive gating.** A dedicated gating network uses workflow DAG information, ready-task features, VM state embeddings, and deadline urgency to route decisions to the most suitable expert.
 - **Two-phase training.** Experts are first pre-trained independently, then integrated into the full DEFT policy and jointly optimized together with the gating network and state embedding module.
 
+DEFT **fundamentally redesigns** the decision-making policy network by introducing a **Mixture-of-Experts architecture** and a **graph-adaptive gating network** for context-dependent expert routing, and an effecttive **two-phase training procedure** for poicy learning. 
+
 ---
 
 ## What Is Included in This Release
 
-This release only contains the **DEFT-specific module** needed to reproduce the policy-side contribution of the paper. Included files:
+This release only contains the DEFT-specific module needed to reproduce the policy-side contribution of the paper. Included files:
 
-- `DEFT/moe.py`  
+- `MoE/moe.py`  
   Implements the main MoE components used by DEFT, including:
   - the DAG encoder,
   - the graph-adaptive gating network, and
   - the hybrid MoE routing module.
 
-- `DEFT/stateEmbeddingLearning.py`  
+- `MoE/stateEmbeddingLearning.py`  
   Contains the state embedding module (SEM) used by DEFT. This module follows the GATES backbone design and exposes the intermediate representations required by the DEFT gating and expert-routing logic.
 
-- `DEFT/wf_model.py`  
-  Provides the DEFT policy wrapper (`WFPolicy`) that combines:
+- `MoE/wf_model.py`  
+  Provides the DEFT policy network (`WFPolicy`) that combines:
   - the GATES-style state embedding module,
   - the DAG encoder,
   - the MoE module, and
   - the action selection logic for workflow scheduling.
 
-This release does **not** duplicate the following parts, which should be obtained from [GATES](https://github.com/yashenCS/GATES):
+This release does not duplicate the following parts, which should be obtained from [GATES](https://github.com/yashenCS/GATES):
 
   - simulator and environment implementation,
   - training and evaluation scripts,
   - configuration system,
   - optimizer / ES training framework,
   - policy base classes and project scaffolding.
-
-DEFT **fundamentally redesigns** the decision-making policy network by introducing a **Mixture-of-Experts architecture** and a **graph-adaptive gating network** for context-dependent expert routing, and an effecttive **two-phase training procedure** for poicy learning. 
 
 ---
 
@@ -61,18 +61,18 @@ A high-level integration workflow is:
    - Follow its environment setup and dependency instructions.
 
 2. **Add the DEFT modules to the GATES project**
-   - Copy the `DEFT/` directory from this release into the GATES project.
+   - Copy the `MoE/` directory from this release into the GATES project.
    - Keep the original GATES project structure intact.
 
 3. **Connect the DEFT policy to the GATES training framework**
-   - The DEFT implementation in `DEFT/wf_model.py` defines a `WFPolicy` compatible with the existing workflow scheduling setting.
+   - The DEFT implementation in `MoE/wf_model.py` defines a `WFPolicy` compatible with the existing workflow scheduling setting.
 
 4. **Reuse the GATES simulator and training scripts**
    - Continue to use the original simulator, environment, config system, and ES-based training backbone from GATES.
    - DEFT is intended to run inside that framework rather than as an independent training codebase. 
 
 5. **Prepare expert initialization checkpoints**
-   - `DEFT/wf_model.py` expects multiple pre-trained model paths for expert initialization.
+   - `MoE/wf_model.py` expects multiple pre-trained model paths for expert initialization.
    - These experts are initialized from pre-trained GATES-style policy checkpoints trained under different deadline settings.
    - You should replace the placeholder paths in the code with your own checkpoint paths.
 
