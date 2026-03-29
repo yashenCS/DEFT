@@ -47,6 +47,8 @@ class DAGEncoder(nn.Module):
 
 # ---------------------------------------------------------------------------
 # 2) Graph-adaptive gating network
+# might not be the best implementation according to the original paper
+# you can re-implement it by yourself
 # ---------------------------------------------------------------------------
 class HybridRoutingGating(nn.Module):
 
