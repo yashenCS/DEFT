@@ -5,7 +5,7 @@ This repository provides the implementation for DEFT, our ICLR 2026 method for d
 The official website of this paper at: [DEFT_ICLR_2026](https://iclr.cc/virtual/2026/poster/10006550)
 
 
-[![DEFT Poster](ICLR_2026_poster_ya.png)](ICLR_2026_poster_ya.png)
+[![DEFT Poster](ICLR_2026_poster_ya.png)](ICLR_2026_poster_ya.pdf)
 
 ---
 
