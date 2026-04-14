@@ -1,6 +1,11 @@
 # Deft Scheduling of Dynamic Cloud Workflows with Varying Deadlines via Mixture-of-Experts
 
-This repository provides the implementation for DEFT, our ICLR 2026 method for dynamic cloud workflow scheduling under varying deadlines. DEFT should be used together with the original [GATES](https://github.com/yashenCS/GATES) codebase, which already contains the simulator, environment, training pipeline, and evaluation scripts.
+This repository provides the implementation for DEFT, our ICLR 2026 method for dynamic cloud workflow scheduling under varying deadlines. DEFT should be used together with the original [GATES](https://github.com/yashenCS/GATES) codebase, which already contains the simulator, environment, training pipeline, and evaluation scripts. 
+
+The official website of this paper at: [DEFT_ICLR_2026](https://iclr.cc/virtual/2026/poster/10006550)
+
+
+[![DEFT Poster](ICLR_2026_poster_ya.png)](ICLR_2026_poster_ya.png)
 
 ---
 
