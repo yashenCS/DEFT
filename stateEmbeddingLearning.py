@@ -18,6 +18,7 @@ Algorithm: GATES
 Paper: GATES: Cost-aware Dynamic Workflow Scheduling via Graph Attention Networks and Evolution Strategy. IJCAI 2025.
 Authors: Ya Shen, Gang Chen, Hui Ma, and Mengjie Zhang
 ---------------------------------------------------------------------------------------------------------------------
+Note: You need to adapt the algorithm to suit your specific problems and configurations to ensure fairness.
 """
 class GATES(nn.Module):
     def __init__(self,

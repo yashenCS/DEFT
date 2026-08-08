@@ -1,9 +1,10 @@
 
 """
-    Algorithm: DEFT
-    Paper Title: Deft Scheduling of Dynamic Cloud Workflows with Varying Deadlines via Mixture-of-Experts
-    Author: Ya Shen, Gang Chen, Hui Ma, Mengjie Zhang
-    Conference: The Fourteenth International Conference on Learning Representations (ICLR 2026)
+Algorithm: DEFT
+Paper Title: Deft Scheduling of Dynamic Cloud Workflows with Varying Deadlines via Mixture-of-Experts
+Author: Ya Shen, Gang Chen, Hui Ma, Mengjie Zhang
+Conference: The Fourteenth International Conference on Learning Representations (ICLR 2026)
+Note: You need to adapt the algorithm to suit your specific problems and configurations to ensure fairness.
 """
 
 import time

@@ -1,6 +1,7 @@
 
 """
 Mixture of Experts (MoE) with Graph-adaptive Gating for Dynamic Workflow Scheduling
+Note: You need to adapt the algorithm to suit your specific problems and configurations to ensure fairness.
 """
 
 from __future__ import annotations
